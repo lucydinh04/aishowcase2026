@@ -110,7 +110,6 @@
 </head>
 <body>
 <div class="wrap">
-
   <!-- ===================== BÀI TRUYỀN THÔNG ===================== -->
   <div class="hero">
     <img src="./poster.png" alt="YES, AI-POWERED ME! — Ahamove AI Showcase 2026"
@@ -352,7 +351,7 @@
 </div>
 
 <script>
-  const APPS_SCRIPT_URL = "https://script.google.com/a/macros/ahamove.com/s/AKfycbyMWZzTX2gpCtzLlLg0pBbAeuj8ipTDNt6NXbiA2yXSDP-wsvn-5AkeXCWyGUg8MrTT/exec";
+  /* Bản Vercel: giao diện chạy trên Vercel, gửi dữ liệu về Apps Script Web App bằng fetch. */
 
   function toggleMode(){
     var mode = document.querySelector('input[name="mode"]:checked');
@@ -374,41 +373,38 @@
     var btn = form.querySelector('.submit');
     var msg = document.getElementById('okmsg');
 
+    // Gom toàn bộ dữ liệu form thành object
     var data = {};
     new FormData(form).forEach(function(v,k){ data[k] = v; });
-    data.cam_ket_r5 = form.cam_ket_r5.checked ? 'Có' : '';
-    data.cam_ket_r4 = form.cam_ket_r4.checked ? 'Có' : '';
+    // checkbox: nếu được tick FormData trả 'on'
+    data.cam_ket_r5  = form.cam_ket_r5.checked  ? 'Có' : '';
+    data.cam_ket_r4  = form.cam_ket_r4.checked  ? 'Có' : '';
     data.cam_ket_1doi = form.cam_ket_1doi.checked ? 'Có' : '';
 
-    btn.disabled = true;
-    btn.textContent = '⏳ Đang gửi...';
-    msg.style.display = 'none';
-
-    fetch(APPS_SCRIPT_URL, {
+    btn.disabled = true; btn.textContent = '⏳ Đang gửi...';
+    fetch('https://script.google.com/a/macros/ahamove.com/s/AKfycbyMWZzTX2gpCtzLlLg0pBbAeuj8ipTDNt6NXbiA2yXSDP-wsvn-5AkeXCWyGUg8MrTT/exec', {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
     })
-    .then(function(){
-      form.reset();
-      document.getElementById('branch-canhan').classList.remove('active');
-      document.getElementById('branch-doi').classList.remove('active');
-      msg.style.display = 'block';
-      msg.style.color = '#34d399';
-      msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
-      msg.scrollIntoView({behavior:'smooth',block:'center'});
-      btn.disabled = false;
-      btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
-    })
-    .catch(function(){
-      msg.style.display = 'block';
-      msg.style.color = '#ff5a1f';
-      msg.textContent = '❌ Gửi chưa thành công. Vui lòng thử lại.';
-      btn.disabled = false;
-      btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
-    });
-
+      .then(function(res){ return res.json(); })
+      .then(function(result){
+        if (!result || result.result !== 'success') throw new Error(result && result.message ? result.message : 'Gửi chưa thành công');
+        form.reset();
+        document.getElementById('branch-canhan').classList.remove('active');
+        document.getElementById('branch-doi').classList.remove('active');
+        msg.style.display = 'block';
+        msg.style.color = '#34d399';
+        msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
+        msg.scrollIntoView({behavior:'smooth',block:'center'});
+        btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
+      })
+      .catch(function(err){
+        msg.style.display = 'block';
+        msg.style.color = '#ff5a1f';
+        msg.textContent = '❌ Gửi chưa thành công: ' + (err && err.message ? err.message : 'lỗi không xác định') + '. Vui lòng thử lại.';
+        btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
+      });
     return false;
   }
 </script>
