@@ -112,14 +112,9 @@
 <div class="wrap">
 
   <!-- ===================== BÀI TRUYỀN THÔNG ===================== -->
-  <? if (logoDataUri) { ?>
-  <div style="text-align:left;margin:0 0 16px"><img src="<?!= logoDataUri ?>" alt="Ahamove" style="height:34px;display:inline-block"></div>
-  <? } ?>
   <div class="hero">
-    <? if (posterDataUri) { ?>
-    <img src="<?!= posterDataUri ?>" alt="YES, AI-POWERED ME! — Ahamove AI Showcase 2026"
+    <img src="./poster.png" alt="YES, AI-POWERED ME! — Ahamove AI Showcase 2026"
          style="width:100%;border-radius:14px;display:block;margin-bottom:22px;border:1px solid var(--line)">
-    <? } ?>
     <span class="badge">Ahamove AI Showcase 2026 · Chuỗi YES A.I DO</span>
     <h1>YES, AI-POWERED ME!</h1>
     <p class="sub">Real Work. Real AI. Real Impact.</p>
@@ -357,8 +352,7 @@
 </div>
 
 <script>
-  /* Bản này CHẠY TRỰC TIẾP trên Apps Script (HtmlService):
-     gửi dữ liệu qua google.script.run — same-origin, không cần URL ngoài, không lỗi CORS. */
+  const APPS_SCRIPT_URL = "https://script.google.com/a/macros/ahamove.com/s/AKfycbyMWZzTX2gpCtzLlLg0pBbAeuj8ipTDNt6NXbiA2yXSDP-wsvn-5AkeXCWyGUg8MrTT/exec";
 
   function toggleMode(){
     var mode = document.querySelector('input[name="mode"]:checked');
@@ -380,33 +374,41 @@
     var btn = form.querySelector('.submit');
     var msg = document.getElementById('okmsg');
 
-    // Gom toàn bộ dữ liệu form thành object
     var data = {};
     new FormData(form).forEach(function(v,k){ data[k] = v; });
-    // checkbox: nếu được tick FormData trả 'on'
-    data.cam_ket_r5  = form.cam_ket_r5.checked  ? 'Có' : '';
-    data.cam_ket_r4  = form.cam_ket_r4.checked  ? 'Có' : '';
+    data.cam_ket_r5 = form.cam_ket_r5.checked ? 'Có' : '';
+    data.cam_ket_r4 = form.cam_ket_r4.checked ? 'Có' : '';
     data.cam_ket_1doi = form.cam_ket_1doi.checked ? 'Có' : '';
 
-    btn.disabled = true; btn.textContent = '⏳ Đang gửi...';
-    google.script.run
-      .withSuccessHandler(function(){
-        form.reset();
-        document.getElementById('branch-canhan').classList.remove('active');
-        document.getElementById('branch-doi').classList.remove('active');
-        msg.style.display = 'block';
-        msg.style.color = '#34d399';
-        msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
-        msg.scrollIntoView({behavior:'smooth',block:'center'});
-        btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
-      })
-      .withFailureHandler(function(err){
-        msg.style.display = 'block';
-        msg.style.color = '#ff5a1f';
-        msg.textContent = '❌ Gửi chưa thành công: ' + (err && err.message ? err.message : 'lỗi không xác định') + '. Vui lòng thử lại.';
-        btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
-      })
-      .submitRegistration(data);
+    btn.disabled = true;
+    btn.textContent = '⏳ Đang gửi...';
+    msg.style.display = 'none';
+
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.reset();
+      document.getElementById('branch-canhan').classList.remove('active');
+      document.getElementById('branch-doi').classList.remove('active');
+      msg.style.display = 'block';
+      msg.style.color = '#34d399';
+      msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
+      msg.scrollIntoView({behavior:'smooth',block:'center'});
+      btn.disabled = false;
+      btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
+    })
+    .catch(function(){
+      msg.style.display = 'block';
+      msg.style.color = '#ff5a1f';
+      msg.textContent = '❌ Gửi chưa thành công. Vui lòng thử lại.';
+      btn.disabled = false;
+      btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
+    });
+
     return false;
   }
 </script>
