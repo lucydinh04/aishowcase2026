@@ -64,6 +64,20 @@
   .note{background:rgba(34,211,238,.08);border:1px dashed var(--cyan);border-radius:12px;
     padding:12px 16px;color:#cfeeff;font-size:14px;margin-top:14px}
 
+
+  /* COUNTDOWN */
+  .countdown{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent);
+    border-radius:18px;padding:20px 24px;margin-top:30px;text-align:center}
+  .cd-label{color:var(--accent2);font-weight:700;font-size:14px;letter-spacing:.3px;margin-bottom:14px}
+  .cd-grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .cd-box{background:#0d1326;border:1px solid var(--line);border-radius:12px;padding:12px 0;min-width:74px}
+  .cd-box span{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1}
+  .cd-box small{display:block;margin-top:6px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+  .cd-expired{color:var(--accent);font-weight:800;font-size:18px;padding:6px 0}
+  .lock-msg{background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;
+    padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 4px}
+  @media(max-width:620px){.cd-box{min-width:62px}.cd-box span{font-size:26px}}
+
   /* FORM */
   .formcard{background:var(--card);border:1px solid var(--line);border-radius:22px;
     padding:30px 28px;margin-top:30px}
@@ -157,6 +171,18 @@
 
     <div class="note">📌 <b>Lưu ý:</b> Đây là thông báo mở form đăng ký. Tiêu chí chấm điểm chi tiết (Scoring Rubric) sẽ được công bố ở giai đoạn sau — bạn cứ tập trung vào use case thật của mình trước.</div>
   </div>
+
+  <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
+  <div class="countdown" id="countdown">
+    <div class="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, 15/06/2026</b></div>
+    <div class="cd-grid" id="cd-grid">
+      <div class="cd-box"><span id="cd-d">00</span><small>Ngày</small></div>
+      <div class="cd-box"><span id="cd-h">00</span><small>Giờ</small></div>
+      <div class="cd-box"><span id="cd-m">00</span><small>Phút</small></div>
+      <div class="cd-box"><span id="cd-s">00</span><small>Giây</small></div>
+    </div>
+  </div>
+
 
   <!-- ===================== FORM ĐĂNG KÝ ===================== -->
   <div class="formcard">
@@ -407,6 +433,62 @@
       });
     return false;
   }
+
+  // Khoá toàn bộ form khi hết hạn + hiện thông báo
+  function lockRegistration(){
+    var grid = document.getElementById('cd-grid');
+    if (grid) grid.innerHTML = '<div class="cd-expired">⛔ ĐÃ HẾT HẠN ĐĂNG KÝ</div>';
+
+    var label = document.querySelector('.cd-label');
+    if (label) label.innerHTML = 'Cổng đăng ký đã đóng lúc <b>12:00, 15/06/2026</b>';
+
+    var form = document.getElementById('regForm');
+    var fc = document.querySelector('.formcard');
+
+    if (fc && !document.getElementById('lockMsg')){
+      var lock = document.createElement('div');
+      lock.id = 'lockMsg';
+      lock.className = 'lock-msg';
+      lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 15/06/2026. Cảm ơn bạn đã quan tâm!';
+      fc.insertBefore(lock, form || null);
+    }
+
+    if (form){
+      form.querySelectorAll('input, select, textarea, button').forEach(function(el){ el.disabled = true; });
+      form.style.opacity = '.5';
+      form.style.pointerEvents = 'none';
+    }
+  }
+
+  // Đếm ngược deadline đăng ký: 12:00 ngày 15/06/2026 theo giờ Việt Nam
+  (function(){
+    var deadline = new Date('2026-06-15T12:00:00+07:00').getTime();
+    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+
+    function tick(){
+      var diff = deadline - Date.now();
+
+      if (diff <= 0){
+        lockRegistration();
+        return;
+      }
+
+      var d = document.getElementById('cd-d');
+      var h = document.getElementById('cd-h');
+      var m = document.getElementById('cd-m');
+      var sec = document.getElementById('cd-s');
+
+      if (d) d.textContent = pad(Math.floor(diff / 86400000));
+      if (h) h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+      if (m) m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+      if (sec) sec.textContent = pad(Math.floor((diff % 60000) / 1000));
+
+      setTimeout(tick, 1000);
+    }
+
+    tick();
+  })();
+
 </script>
 </body>
 </html>
