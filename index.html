@@ -55,6 +55,28 @@
   .prize h3{margin:0;font-size:20px;color:var(--accent2)}
   .prize p{margin:4px 0 0;color:var(--muted)}
 
+  /* HERO CALLOUT */
+  .callout{margin:18px 0 4px;background:rgba(255,90,31,.10);border:1px solid var(--accent);
+    border-left:4px solid var(--accent);border-radius:14px;padding:18px 20px}
+  .callout .big{color:#fff;font-weight:800;font-size:18px;margin:0 0 6px}
+  .callout p{margin:0;color:#ffe2d3;font-size:15px;line-height:1.6}
+
+  /* PRIZE BLOCKS */
+  .prizes{display:grid;gap:12px;margin-top:8px}
+  .pcard{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+  .pcard h3{margin:0 0 6px;font-size:17px;color:var(--accent2)}
+  .pcard p{margin:0;color:var(--muted)}
+  .pcard ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+  .pcard ul li{margin:3px 0}
+  .pcard.gold{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent)}
+  .pcard.strategic{background:linear-gradient(135deg,#10233f,#1c2541);border:1px solid var(--cyan);
+    box-shadow:0 0 0 1px rgba(34,211,238,.15),0 10px 34px rgba(34,211,238,.10)}
+  .pcard.strategic h3{color:var(--cyan)}
+  .ribbon{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;color:#06212a;
+    background:var(--cyan);padding:3px 10px;border-radius:999px;margin-bottom:8px;text-transform:uppercase}
+  .pmini{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:620px){.pmini{grid-template-columns:1fr}}
+
   .steps{display:grid;gap:10px;margin-top:6px}
   .step{display:flex;gap:14px;align-items:flex-start;background:var(--card2);
     border:1px solid var(--line);border-radius:12px;padding:12px 16px}
@@ -64,18 +86,15 @@
   .note{background:rgba(34,211,238,.08);border:1px dashed var(--cyan);border-radius:12px;
     padding:12px 16px;color:#cfeeff;font-size:14px;margin-top:14px}
 
-
   /* COUNTDOWN */
   .countdown{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent);
     border-radius:18px;padding:20px 24px;margin-top:30px;text-align:center}
   .cd-label{color:var(--accent2);font-weight:700;font-size:14px;letter-spacing:.3px;margin-bottom:14px}
-  .cd-grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .cd-grid{display:flex;justify-content:center;gap:12px}
   .cd-box{background:#0d1326;border:1px solid var(--line);border-radius:12px;padding:12px 0;min-width:74px}
   .cd-box span{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1}
   .cd-box small{display:block;margin-top:6px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
   .cd-expired{color:var(--accent);font-weight:800;font-size:18px;padding:6px 0}
-  .lock-msg{background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;
-    padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 4px}
   @media(max-width:620px){.cd-box{min-width:62px}.cd-box span{font-size:26px}}
 
   /* FORM */
@@ -124,6 +143,7 @@
 </head>
 <body>
 <div class="wrap">
+
   <!-- ===================== BÀI TRUYỀN THÔNG ===================== -->
   <div class="hero">
     <img src="./poster.png" alt="YES, AI-POWERED ME! — Ahamove AI Showcase 2026"
@@ -132,6 +152,11 @@
     <h1>YES, AI-POWERED ME!</h1>
     <p class="sub">Real Work. Real AI. Real Impact.</p>
     <p class="tagline">Show me the workflow. Show me the number.</p>
+
+    <div class="callout">
+      <p class="big">Không chỉ là một cuộc thi.</p>
+      <p>Đây là nơi những <b>AI Workflow tốt nhất tại Ahamove</b> được tìm thấy, chứng minh bằng <b>dữ liệu thực</b> và có cơ hội <b>nhân rộng trên toàn công ty</b>.</p>
+    </div>
 
     <div class="section-title">Bối cảnh — Why now?</div>
     <p class="lead">Q2/2026, Ahamove đang quyết liệt đẩy mạnh <b>AI-Transformation</b> tiến tới <b>“AI-Powered” toàn diện</b> — nâng cấp toàn bộ tài sản cốt lõi bằng AI. Sự thay đổi bắt đầu từ <b>300 “chiến binh AI”</b> đang không ngừng tự chuyển mình.</p>
@@ -146,7 +171,7 @@
     </div>
 
     <div class="section-title">Thể thức &amp; Định hướng</div>
-    <p>Mở cho <b>toàn bộ Ahamover — tech &amp; non-tech</b>. Tham gia theo <b>cá nhân</b> hoặc <b>đội tối đa 3 người</b> (khuyến khích cross-functional: có cả tech + non-tech). Mỗi cá nhân chỉ tham gia <b>1 đội duy nhất</b>; mỗi đội chỉ đăng ký <b>1 showcase</b>, và <b>declare 1 trong 4 trụ cột AI-Powered</b>:</p>
+    <p>Mở cho <b>toàn bộ Ahamover — tech &amp; non-tech</b>. Tham gia theo <b>cá nhân</b> hoặc <b>đội tối đa 3 người</b> (khuyến khích cross-functional: có cả tech + non-tech). Mỗi cá nhân chỉ tham gia <b>1 đội duy nhất</b>; mỗi đội chỉ đăng ký <b>1 showcase</b>. Giải pháp của bạn thường gắn với <b>1 trong 4 trụ cột AI-Powered</b> mà Ahamove đang hướng tới (BTC sẽ phân loại sau, bạn cứ tập trung vào bài toán thật):</p>
     <div class="pillars">
       <div class="pillar"><div class="t">TRACK T1</div><div class="n">AI-Autonomous Coding</div></div>
       <div class="pillar"><div class="t">TRACK T2</div><div class="n">AI Operations (CS / Pooling / Truck)</div></div>
@@ -155,18 +180,44 @@
     </div>
 
     <div class="section-title">Giải thưởng</div>
-    <div class="prize">
-      <div class="ico">🏆🇨🇳</div>
-      <div>
-        <h3>Top 1 — “YES, I DELIVER IMPACT”: Study Tour Trung Quốc</h3>
-        <p>Cá nhân / đội vô địch sẽ giành tấm vé <b>Study Tour Trung Quốc</b> — tận mắt chứng kiến những ứng dụng AI hàng đầu. Cùng nhiều giải thưởng hấp dẫn khác, và <b>quà lưu niệm + Certificate</b> cho tất cả đội tham gia.</p>
+    <div class="prizes">
+      <div class="pcard gold">
+        <h3>🏆 TOP 1 — YES, I DELIVER IMPACT</h3>
+        <p style="color:#fff;font-weight:700;margin-bottom:4px">Study Tour tại Trung Quốc</p>
+        <p>Cơ hội trực tiếp khám phá những doanh nghiệp và ứng dụng AI hàng đầu, học hỏi cách AI đang được triển khai ở quy mô lớn trong thực tế.</p>
+      </div>
+
+      <div class="pcard strategic">
+        <span class="ribbon">Strategic Award</span>
+        <h3>🚀 SCALABLE IMPACT AWARD</h3>
+        <p>Dành cho use case có tiềm năng nhân rộng và tạo tác động lớn nhất đến tổ chức. Những giải pháp xuất sắc có thể được:</p>
+        <ul>
+          <li>Xem xét triển khai rộng rãi tại Ahamove</li>
+          <li>Được công ty đầu tư nguồn lực để tiếp tục phát triển</li>
+          <li>Được vinh danh tại <b>Year End Party 2026</b></li>
+        </ul>
+      </div>
+
+      <div class="pmini">
+        <div class="pcard">
+          <h3>🎖️ TẤT CẢ ĐỘI THAM GIA</h3>
+          <ul>
+            <li>Certificate AI Showcase 2026</li>
+            <li>Quà lưu niệm độc quyền từ chương trình</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <h3>🎁 NHIỀU GIẢI THƯỞNG HẤP DẪN KHÁC</h3>
+          <p>Các giải thưởng chuyên đề sẽ được BTC công bố trong giai đoạn tiếp theo.</p>
+        </div>
       </div>
     </div>
 
     <div class="section-title">Sau khi bạn nhấn “Đăng ký”</div>
     <div class="steps">
-      <div class="step"><div class="num">1</div><div><b>Trong vòng 48 giờ</b>, BTC sẽ gửi <b>email xác nhận</b> cùng các hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!</div></div>
-      <div class="step"><div class="num">2</div><div><b>Ban Giám Khảo sẽ được “bật mí”</b> trong các bài công bố sắp tới — hãy theo dõi để không bỏ lỡ.</div></div>
+      <div class="step"><div class="num">1</div><div>BTC sẽ gửi <b>email xác nhận trong vòng 48 giờ</b>.</div></div>
+      <div class="step"><div class="num">2</div><div>Các <b>workshop, mentoring session</b> và tài liệu hỗ trợ sẽ được công bố trong các giai đoạn tiếp theo.</div></div>
+      <div class="step"><div class="num">3</div><div><b>Ban Giám Khảo</b> và <b>cơ cấu giải thưởng chi tiết</b> sẽ được bật mí trong những bài truyền thông sắp tới.</div></div>
     </div>
 
     <div class="note">📌 <b>Lưu ý:</b> Đây là thông báo mở form đăng ký. Tiêu chí chấm điểm chi tiết (Scoring Rubric) sẽ được công bố ở giai đoạn sau — bạn cứ tập trung vào use case thật của mình trước.</div>
@@ -182,7 +233,6 @@
       <div class="cd-box"><span id="cd-s">00</span><small>Giây</small></div>
     </div>
   </div>
-
 
   <!-- ===================== FORM ĐĂNG KÝ ===================== -->
   <div class="formcard">
@@ -320,18 +370,7 @@
       </div>
 
       <!-- PHẦN 2 -->
-      <span class="partlabel">PHẦN 2 · Ý TƯỞNG USE CASE</span>
-
-      <label>Bạn/đội declare track nào? <span class="req">*</span>
-        <div class="hint">Theo thể lệ, mỗi showcase declare đúng 1 trong 4 trụ cột AI-Powered.</div>
-      </label>
-      <select name="track" required>
-        <option value="" disabled selected>— Chọn 1 trụ cột —</option>
-        <option value="T1">T1 — AI-Autonomous Coding</option>
-        <option value="T2">T2 — AI Operations (CS / Pooling / Truck)</option>
-        <option value="T3">T3 — AI-Powered Franchise</option>
-        <option value="T4">T4 — AI-Powered Back Office</option>
-      </select>
+      <span class="partlabel">PHẦN 2 · USE CASE ĐĂNG KÝ</span>
 
       <label>Tên Use Case dự kiến <span class="req">*</span></label>
       <input type="text" name="usecase_ten" placeholder="VD: Trợ lý AI tự động phân loại ticket CS" required>
@@ -370,14 +409,12 @@
       <div id="okmsg" style="display:none;text-align:center;color:var(--ok);font-weight:700;margin-top:18px"></div>
     </form>
 
-    <div class="mfooter">
-      📄 Tham khảo chi tiết tại <a href="https://docs.google.com/spreadsheets/d/15TB8zm_DQc1wRB_fSZX-bVoA2NgiB6hDK73eGDEdPI8/edit?gid=680383751#gid=680383751" target="_blank" rel="noopener">AI Showcase 2026 — Master Plan</a>
-    </div>
   </div>
 </div>
 
 <script>
-  /* Bản Vercel: giao diện chạy trên Vercel, gửi dữ liệu về Apps Script Web App bằng fetch. */
+  /* Bản HTML RỜI (host bên ngoài / mở trực tiếp): gửi dữ liệu về Apps Script qua URL bên dưới. */
+  var WEB_APP_URL = "https://script.google.com/a/macros/ahamove.com/s/AKfycbyMWZzTX2gpCtzLlLg0pBbAeuj8ipTDNt6NXbiA2yXSDP-wsvn-5AkeXCWyGUg8MrTT/exec";
 
   function toggleMode(){
     var mode = document.querySelector('input[name="mode"]:checked');
@@ -408,29 +445,26 @@
     data.cam_ket_1doi = form.cam_ket_1doi.checked ? 'Có' : '';
 
     btn.disabled = true; btn.textContent = '⏳ Đang gửi...';
-    fetch('https://script.google.com/a/macros/ahamove.com/s/AKfycbyMWZzTX2gpCtzLlLg0pBbAeuj8ipTDNt6NXbiA2yXSDP-wsvn-5AkeXCWyGUg8MrTT/exec', {
+    fetch(WEB_APP_URL, {
       method: 'POST',
+      mode: 'no-cors',                                   // tránh lỗi CORS với Apps Script
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
-    })
-      .then(function(res){ return res.json(); })
-      .then(function(result){
-        if (!result || result.result !== 'success') throw new Error(result && result.message ? result.message : 'Gửi chưa thành công');
-        form.reset();
-        document.getElementById('branch-canhan').classList.remove('active');
-        document.getElementById('branch-doi').classList.remove('active');
-        msg.style.display = 'block';
-        msg.style.color = '#34d399';
-        msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
-        msg.scrollIntoView({behavior:'smooth',block:'center'});
-        btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
-      })
-      .catch(function(err){
-        msg.style.display = 'block';
-        msg.style.color = '#ff5a1f';
-        msg.textContent = '❌ Gửi chưa thành công: ' + (err && err.message ? err.message : 'lỗi không xác định') + '. Vui lòng thử lại.';
-        btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
-      });
+    }).then(function(){
+      form.reset();
+      document.getElementById('branch-canhan').classList.remove('active');
+      document.getElementById('branch-doi').classList.remove('active');
+      msg.style.display = 'block';
+      msg.style.color = '#34d399';
+      msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
+      msg.scrollIntoView({behavior:'smooth',block:'center'});
+    }).catch(function(){
+      msg.style.display = 'block';
+      msg.style.color = '#ff5a1f';
+      msg.textContent = '❌ Gửi chưa thành công. Vui lòng kiểm tra kết nối mạng và thử lại.';
+    }).finally(function(){
+      btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
+    });
     return false;
   }
 
@@ -438,21 +472,17 @@
   function lockRegistration(){
     var grid = document.getElementById('cd-grid');
     if (grid) grid.innerHTML = '<div class="cd-expired">⛔ ĐÃ HẾT HẠN ĐĂNG KÝ</div>';
-
     var label = document.querySelector('.cd-label');
     if (label) label.innerHTML = 'Cổng đăng ký đã đóng lúc <b>12:00, 15/06/2026</b>';
-
     var form = document.getElementById('regForm');
     var fc = document.querySelector('.formcard');
-
     if (fc && !document.getElementById('lockMsg')){
       var lock = document.createElement('div');
       lock.id = 'lockMsg';
-      lock.className = 'lock-msg';
+      lock.style.cssText = 'background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 4px';
       lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 15/06/2026. Cảm ơn bạn đã quan tâm!';
-      fc.insertBefore(lock, form || null);
+      fc.insertBefore(lock, fc.children[2] || null);
     }
-
     if (form){
       form.querySelectorAll('input, select, textarea, button').forEach(function(el){ el.disabled = true; });
       form.style.opacity = '.5';
@@ -460,35 +490,21 @@
     }
   }
 
-  // Đếm ngược deadline đăng ký: 12:00 ngày 15/06/2026 theo giờ Việt Nam
+  // ===== Đếm ngược hạn đăng ký =====
   (function(){
     var deadline = new Date('2026-06-15T12:00:00+07:00').getTime();
-    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
-
+    var pad = function(n){ return (n<10?'0':'')+n; };
     function tick(){
       var diff = deadline - Date.now();
-
-      if (diff <= 0){
-        lockRegistration();
-        return;
-      }
-
-      var d = document.getElementById('cd-d');
-      var h = document.getElementById('cd-h');
-      var m = document.getElementById('cd-m');
-      var sec = document.getElementById('cd-s');
-
-      if (d) d.textContent = pad(Math.floor(diff / 86400000));
-      if (h) h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-      if (m) m.textContent = pad(Math.floor((diff % 3600000) / 60000));
-      if (sec) sec.textContent = pad(Math.floor((diff % 60000) / 1000));
-
+      if (diff <= 0){ lockRegistration(); return; }
+      document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
+      document.getElementById('cd-h').textContent = pad(Math.floor(diff%86400000/3600000));
+      document.getElementById('cd-m').textContent = pad(Math.floor(diff%3600000/60000));
+      document.getElementById('cd-s').textContent = pad(Math.floor(diff%60000/1000));
       setTimeout(tick, 1000);
     }
-
     tick();
   })();
-
 </script>
 </body>
 </html>
