@@ -55,28 +55,6 @@
   .prize h3{margin:0;font-size:20px;color:var(--accent2)}
   .prize p{margin:4px 0 0;color:var(--muted)}
 
-  /* HERO CALLOUT */
-  .callout{margin:18px 0 4px;background:rgba(255,90,31,.10);border:1px solid var(--accent);
-    border-left:4px solid var(--accent);border-radius:14px;padding:18px 20px}
-  .callout .big{color:#fff;font-weight:800;font-size:18px;margin:0 0 6px}
-  .callout p{margin:0;color:#ffe2d3;font-size:15px;line-height:1.6}
-
-  /* PRIZE BLOCKS */
-  .prizes{display:grid;gap:12px;margin-top:8px}
-  .pcard{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
-  .pcard h3{margin:0 0 6px;font-size:17px;color:var(--accent2)}
-  .pcard p{margin:0;color:var(--muted)}
-  .pcard ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
-  .pcard ul li{margin:3px 0}
-  .pcard.gold{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent)}
-  .pcard.strategic{background:linear-gradient(135deg,#10233f,#1c2541);border:1px solid var(--cyan);
-    box-shadow:0 0 0 1px rgba(34,211,238,.15),0 10px 34px rgba(34,211,238,.10)}
-  .pcard.strategic h3{color:var(--cyan)}
-  .ribbon{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;color:#06212a;
-    background:var(--cyan);padding:3px 10px;border-radius:999px;margin-bottom:8px;text-transform:uppercase}
-  .pmini{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  @media(max-width:620px){.pmini{grid-template-columns:1fr}}
-
   .steps{display:grid;gap:10px;margin-top:6px}
   .step{display:flex;gap:14px;align-items:flex-start;background:var(--card2);
     border:1px solid var(--line);border-radius:12px;padding:12px 16px}
@@ -85,6 +63,46 @@
 
   .note{background:rgba(34,211,238,.08);border:1px dashed var(--cyan);border-radius:12px;
     padding:12px 16px;color:#cfeeff;font-size:14px;margin-top:14px}
+
+  /* COUNTDOWN */
+  .countdown{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent);
+    border-radius:18px;padding:20px 24px;margin-top:30px;text-align:center}
+  .cd-label{color:var(--accent2);font-weight:700;font-size:14px;letter-spacing:.3px;margin-bottom:14px}
+  .cd-grid{display:flex;justify-content:center;gap:12px}
+  .cd-box{background:#0d1326;border:1px solid var(--line);border-radius:12px;padding:12px 0;min-width:74px}
+  .cd-box span{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1}
+  .cd-box small{display:block;margin-top:6px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+  .cd-expired{color:var(--accent);font-weight:800;font-size:18px;padding:6px 0}
+  @media(max-width:620px){.cd-box{min-width:62px}.cd-box span{font-size:26px}}
+
+
+  /* HERO CALLOUT */
+  .callout{margin:18px 0 4px;background:rgba(255,90,31,.10);border:1px solid var(--accent);
+    border-left:4px solid var(--accent);border-radius:14px;padding:18px 20px}
+  .callout .big{color:#fff;font-weight:800;font-size:18px;margin:0 0 6px}
+  .callout p{margin:0;color:#ffe2d3;font-size:15px;line-height:1.6}
+
+  /* PRIZE / SPECIAL CARDS */
+  .prizes{display:grid;gap:12px;margin-top:8px}
+  .pcard{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+  .pcard h3{margin:0 0 6px;font-size:17px;color:var(--accent2)}
+  .pcard p{margin:0;color:var(--muted)}
+  .pcard ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+  .pcard ul li{margin:4px 0}
+  .pcard.gold{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent)}
+  .pcard.strategic{background:linear-gradient(135deg,#10233f,#1c2541);border:1px solid var(--cyan);
+    box-shadow:0 0 0 1px rgba(34,211,238,.15),0 10px 34px rgba(34,211,238,.10)}
+  .pcard.strategic h3{color:var(--cyan)}
+  .ribbon{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;color:#06212a;
+    background:var(--cyan);padding:3px 10px;border-radius:999px;margin-bottom:8px;text-transform:uppercase}
+  .mystery{background:rgba(34,211,238,.08);border:1px dashed var(--cyan);border-radius:16px;padding:18px 20px;margin-top:8px}
+  .mystery h3{margin:0 0 8px;color:var(--cyan);font-size:18px}
+  .mystery p{margin:6px 0;color:#cfeeff}
+  .mystery .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .mystery .chip{background:#0d1326;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#fff;font-weight:700;font-size:13px}
+  .final-callout{background:rgba(255,176,32,.09);border:1px solid var(--accent2);border-radius:14px;
+    padding:16px 18px;margin-top:20px;color:#ffe7b8}
+  .final-callout b{color:#fff}
 
   /* COUNTDOWN */
   .countdown{background:linear-gradient(135deg,#1c2541,#241a12);border:1px solid var(--accent);
@@ -145,8 +163,7 @@
 <div class="wrap">
 
   <!-- ===================== BÀI TRUYỀN THÔNG ===================== -->
-  <div class="hero">
-    <img src="./poster.png" alt="YES, AI-POWERED ME! — Ahamove AI Showcase 2026"
+  <div class="hero">    <img src="./poster.png" alt="YES, AI-POWERED ME! — Ahamove AI Showcase 2026"
          style="width:100%;border-radius:14px;display:block;margin-bottom:22px;border:1px solid var(--line)">
     <span class="badge">Ahamove AI Showcase 2026 · Chuỗi YES A.I DO</span>
     <h1>YES, AI-POWERED ME!</h1>
@@ -165,62 +182,64 @@
     <div class="section-title">Tinh thần cốt lõi</div>
     <p class="lead">Đây là một <b>SHOWCASE</b> — <span class="muted">không phải Vibe Coding, không phải Hackathon.</span> Bạn trình diễn thứ <b>đã chạy thật</b> để giải quyết bài toán vận hành hàng ngày: có <b>user thật</b>, có <b>số liệu thật</b>.</p>
     <div class="rules">
-      <div class="rule"><div class="k"><span>R1</span>Đã chạy thật ≥ 2 tuần</div><div class="muted">Giải pháp phải được triển khai và sử dụng thực tế tối thiểu 2 tuần trước Demo Day — tránh “fake it”, đảm bảo có data thật.</div></div>
-      <div class="rule"><div class="k"><span>R2</span>Adoption Rate ≥ 50%</div><div class="muted">Ít nhất 50% user trong nhóm mục tiêu thực sự dùng tool — bằng chứng adoption thật, không phải tool tự mình dùng.</div></div>
-      <div class="rule"><div class="k"><span>R3</span>Số liệu Before–After</div><div class="muted">Phải có ≥ 1 metric đo được: giờ/tuần tiết kiệm, $ saved, % lỗi giảm, NPS, conversion… Đây là tiêu chí trọng số cao nhất.</div></div>
+      <div class="rule"><div class="k"><span>✅</span>Use Case đã chạy THẬT</div><div class="muted">Giải pháp đã được triển khai tối thiểu 2 tuần tính đến thời điểm đăng ký.</div></div>
+      <div class="rule"><div class="k"><span>✅</span>User đang sử dụng THẬT</div><div class="muted">Có đồng nghiệp, phòng ban khác hoặc khách hàng đang trực tiếp sử dụng giải pháp.</div></div>
+      <div class="rule"><div class="k"><span>✅</span>Tác động được chứng minh THẬT</div><div class="muted">Có thể đo lường hiệu quả bằng số liệu Before – After như thời gian tiết kiệm, lỗi giảm, chi phí giảm hoặc hiệu suất tăng.</div></div>
     </div>
 
-    <div class="section-title">Thể thức &amp; Định hướng</div>
-    <p>Mở cho <b>toàn bộ Ahamover — tech &amp; non-tech</b>. Tham gia theo <b>cá nhân</b> hoặc <b>đội tối đa 3 người</b> (khuyến khích cross-functional: có cả tech + non-tech). Mỗi cá nhân chỉ tham gia <b>1 đội duy nhất</b>; mỗi đội chỉ đăng ký <b>1 showcase</b>. Giải pháp của bạn thường gắn với <b>1 trong 4 trụ cột AI-Powered</b> mà Ahamove đang hướng tới (BTC sẽ phân loại sau, bạn cứ tập trung vào bài toán thật):</p>
-    <div class="pillars">
-      <div class="pillar"><div class="t">TRACK T1</div><div class="n">AI-Autonomous Coding</div></div>
-      <div class="pillar"><div class="t">TRACK T2</div><div class="n">AI Operations (CS / Pooling / Truck)</div></div>
-      <div class="pillar"><div class="t">TRACK T3</div><div class="n">AI-Powered Franchise</div></div>
-      <div class="pillar"><div class="t">TRACK T4</div><div class="n">AI-Powered Back Office</div></div>
-    </div>
+    <div class="section-title">Hình thức tham gia</div>
+    <p>Mở cho <b>toàn bộ Ahamover — tech &amp; non-tech</b>. Bạn có thể tham gia theo <b>cá nhân</b> hoặc <b>đội nhóm tối đa 3 người</b>. Dù use case bắt đầu từ một thao tác nhỏ hay một workflow phức tạp, điều quan trọng nhất là giải pháp đó đã tạo ra <b>tác động thật</b> trong công việc hằng ngày.</p>
 
     <div class="section-title">Giải thưởng</div>
     <div class="prizes">
       <div class="pcard gold">
-        <h3>🏆 TOP 1 — YES, I DELIVER IMPACT</h3>
-        <p style="color:#fff;font-weight:700;margin-bottom:4px">Study Tour tại Trung Quốc</p>
-        <p>Cơ hội trực tiếp khám phá những doanh nghiệp và ứng dụng AI hàng đầu, học hỏi cách AI đang được triển khai ở quy mô lớn trong thực tế.</p>
+        <h3>🥇 Giải Nhất — YES, I DELIVER IMPACT</h3>
+        <p>Cá nhân hoặc đội ngũ xuất sắc nhất sẽ nhận đặc quyền tham gia chuyến <b>Study Tour tại Trung Quốc</b> — cơ hội trực tiếp trải nghiệm hệ sinh thái công nghệ đỉnh cao và học hỏi các mô hình ứng dụng AI tiên tiến nhất thế giới.</p>
       </div>
 
       <div class="pcard strategic">
         <span class="ribbon">Strategic Award</span>
-        <h3>🚀 SCALABLE IMPACT AWARD</h3>
-        <p>Dành cho use case có tiềm năng nhân rộng và tạo tác động lớn nhất đến tổ chức. Những giải pháp xuất sắc có thể được:</p>
-        <ul>
-          <li>Xem xét triển khai rộng rãi tại Ahamove</li>
-          <li>Được công ty đầu tư nguồn lực để tiếp tục phát triển</li>
-          <li>Được vinh danh tại <b>Year End Party 2026</b></li>
-        </ul>
+        <h3>🚀 Bảo trợ &amp; Nâng tầm dự án</h3>
+        <p>Những sáng kiến có tiềm năng bứt phá và tạo tác động diện rộng sẽ được công ty xem xét đầu tư nguồn lực để phát triển và nhân rộng trên toàn hệ thống — đi kèm với những đặc quyền tương xứng sẽ được công bố trong thời gian sớm nhất.</p>
       </div>
 
-      <div class="pmini">
-        <div class="pcard">
-          <h3>🎖️ TẤT CẢ ĐỘI THAM GIA</h3>
-          <ul>
-            <li>Certificate AI Showcase 2026</li>
-            <li>Quà lưu niệm độc quyền từ chương trình</li>
-          </ul>
-        </div>
-        <div class="pcard">
-          <h3>🎁 NHIỀU GIẢI THƯỞNG HẤP DẪN KHÁC</h3>
-          <p>Các giải thưởng chuyên đề sẽ được BTC công bố trong giai đoạn tiếp theo.</p>
-        </div>
+      <div class="pcard">
+        <h3>🎁 Quà tặng tiếp lửa</h3>
+        <p>Những phần quà hấp dẫn và giá trị sẽ được gửi tặng đến <b>TẤT CẢ</b> các cá nhân và đội ngũ tham gia, như một sự ghi nhận cho tinh thần tiên phong và nỗ lực dịch chuyển cùng AI.</p>
       </div>
     </div>
 
-    <div class="section-title">Sau khi bạn nhấn “Đăng ký”</div>
+    <div class="section-title">Ban Giám Khảo là ai?</div>
+    <div class="mystery">
+      <h3>⚖️ Bí mật — sẽ được bật mí vào tuần tới!</h3>
+      <p>Nhưng spoiler trước: Đây sẽ là <b>bộ tứ quyền lực</b> đại diện cho:</p>
+      <div class="chips">
+        <span class="chip">Strategy</span>
+        <span class="chip">Tech</span>
+        <span class="chip">Product</span>
+        <span class="chip">Business</span>
+      </div>
+      <p style="margin-top:12px">BGK sẽ đánh giá các use case dựa trên tác động thực tế, khả năng nhân rộng, adoption, hiệu quả vận hành và tiềm năng phát triển dài hạn.</p>
+    </div>
+
+    <div class="section-title">Đăng ký hôm nay, chưa cần nộp bài ngay</div>
     <div class="steps">
-      <div class="step"><div class="num">1</div><div>BTC sẽ gửi <b>email xác nhận trong vòng 48 giờ</b>.</div></div>
-      <div class="step"><div class="num">2</div><div>Các <b>workshop, mentoring session</b> và tài liệu hỗ trợ sẽ được công bố trong các giai đoạn tiếp theo.</div></div>
-      <div class="step"><div class="num">3</div><div><b>Ban Giám Khảo</b> và <b>cơ cấu giải thưởng chi tiết</b> sẽ được bật mí trong những bài truyền thông sắp tới.</div></div>
+      <div class="step"><div class="num">1</div><div><b>Đăng ký giữ chỗ trước 12:00, 15/06/2026.</b> Bước này chưa yêu cầu nộp bài, chưa cần hoàn thiện sản phẩm, slide hay demo ngay tại thời điểm đăng ký.</div></div>
+      <div class="step"><div class="num">2</div><div><b>Demo Day chính thức: 30/06/2026.</b> Đây là thời điểm những AI Workflow xuất sắc nhất được trình diễn trước toàn công ty.</div></div>
     </div>
 
-    <div class="note">📌 <b>Lưu ý:</b> Đây là thông báo mở form đăng ký. Tiêu chí chấm điểm chi tiết (Scoring Rubric) sẽ được công bố ở giai đoạn sau — bạn cứ tập trung vào use case thật của mình trước.</div>
+    <div class="note">📌 <b>Lưu ý:</b> Đây là bước đăng ký giữ chỗ cho AI Showcase 2026, chưa phải bước nộp bài thi. Nếu bạn đang sở hữu một giải pháp AI tạo ra giá trị thực tế, đây là thời điểm để chia sẻ câu chuyện đó với toàn công ty.</div>
+  </div>
+
+  <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
+  <div class="countdown" id="countdown">
+    <div class="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, 15/06/2026</b></div>
+    <div class="cd-grid" id="cd-grid">
+      <div class="cd-box"><span id="cd-d">00</span><small>Ngày</small></div>
+      <div class="cd-box"><span id="cd-h">00</span><small>Giờ</small></div>
+      <div class="cd-box"><span id="cd-m">00</span><small>Phút</small></div>
+      <div class="cd-box"><span id="cd-s">00</span><small>Giây</small></div>
+    </div>
   </div>
 
   <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
@@ -399,21 +418,25 @@
       <div class="commit">
         <div class="mt">CAM KẾT</div>
         <div class="checks">
-          <label><input type="checkbox" name="cam_ket_r4" required> <span>Tôi/đội cam kết tuân thủ <b>R4 — Cấm sao chép giao diện nhà cung cấp (No vendor UI wrap)</b>: giải pháp là sản phẩm <b>tự xây dựng (build by Ahamove)</b>, có chiều sâu kỹ thuật/quy trình (workflow), không chỉ khoác giao diện lên công cụ của nhà cung cấp (vendor) có sẵn.</span></label>
-          <label><input type="checkbox" name="cam_ket_r5" required> <span>Tôi/đội cam kết tuân thủ <b>R5 — Ưu tiên bảo mật dữ liệu (Data Privacy First)</b>: tuyệt đối không đưa <b>thông tin định danh cá nhân (PII – Personally Identifiable Information)</b> của khách hàng — như tên, số điện thoại, địa chỉ, CCCD — thông tin tài chính mật hay dữ liệu đối tác bán hàng (merchant) lên nền tảng AI công khai (public); dùng tài khoản <b>Claude Pro</b> công ty cấp; ẩn danh hóa / che dữ liệu (mask/anonymize) trước khi demo.</span></label>
-          <label><input type="checkbox" name="cam_ket_1doi" required> <span>Tôi xác nhận mỗi cá nhân chỉ tham gia <b>1 đội duy nhất</b> và đã đọc thể lệ cuộc thi.</span></label>
+          <label><input type="checkbox" name="cam_ket_r4" required> <span>Tôi cam kết giải pháp đăng ký là sản phẩm do bản thân/đội ngũ trực tiếp xây dựng và phát triển, không đơn thuần là việc sử dụng lại giao diện hoặc sản phẩm có sẵn từ nhà cung cấp bên ngoài.</span></label>
+          <label><input type="checkbox" name="cam_ket_r5" required> <span>Tôi cam kết tuân thủ các nguyên tắc bảo mật dữ liệu của công ty, không chia sẻ thông tin nhạy cảm của khách hàng, đối tác hoặc nhân viên lên các nền tảng AI công khai.</span></label>
+          <label><input type="checkbox" name="cam_ket_1doi" required> <span>Tôi cam kết có thể tham gia Demo Day AI Showcase 2026 vào ngày 30/06/2026.</span></label>
         </div>
+      </div>
+
+      <div class="final-callout">
+        <b>🔥 Đừng để use case của bạn tiếp tục "chạy thầm lặng".</b><br>
+        Nếu AI đang giúp bạn hoặc đội ngũ tiết kiệm thời gian, giảm sai sót hoặc tạo ra tác động tích cực mỗi ngày, đây là lúc để chia sẻ câu chuyện đó với toàn công ty. Biết đâu, AI Workflow tiếp theo được nhân rộng trên toàn Ahamove lại chính là của bạn.
       </div>
 
       <button type="submit" class="submit">🚀 ĐĂNG KÝ THAM GIA</button>
       <div id="okmsg" style="display:none;text-align:center;color:var(--ok);font-weight:700;margin-top:18px"></div>
     </form>
-
-  </div>
+</div>
 </div>
 
 <script>
-  /* Bản HTML RỜI (host bên ngoài / mở trực tiếp): gửi dữ liệu về Apps Script qua URL bên dưới. */
+  /* Bản HTML RỜI (host bên ngoài / Vercel): gửi dữ liệu về Apps Script qua URL bên dưới. */
   var WEB_APP_URL = "https://script.google.com/a/macros/ahamove.com/s/AKfycbyMWZzTX2gpCtzLlLg0pBbAeuj8ipTDNt6NXbiA2yXSDP-wsvn-5AkeXCWyGUg8MrTT/exec";
 
   function toggleMode(){
@@ -436,18 +459,18 @@
     var btn = form.querySelector('.submit');
     var msg = document.getElementById('okmsg');
 
-    // Gom toàn bộ dữ liệu form thành object
     var data = {};
     new FormData(form).forEach(function(v,k){ data[k] = v; });
-    // checkbox: nếu được tick FormData trả 'on'
     data.cam_ket_r5  = form.cam_ket_r5.checked  ? 'Có' : '';
     data.cam_ket_r4  = form.cam_ket_r4.checked  ? 'Có' : '';
     data.cam_ket_1doi = form.cam_ket_1doi.checked ? 'Có' : '';
 
-    btn.disabled = true; btn.textContent = '⏳ Đang gửi...';
+    btn.disabled = true;
+    btn.textContent = '⏳ Đang gửi...';
+
     fetch(WEB_APP_URL, {
       method: 'POST',
-      mode: 'no-cors',                                   // tránh lỗi CORS với Apps Script
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
     }).then(function(){
@@ -463,19 +486,23 @@
       msg.style.color = '#ff5a1f';
       msg.textContent = '❌ Gửi chưa thành công. Vui lòng kiểm tra kết nối mạng và thử lại.';
     }).finally(function(){
-      btn.disabled = false; btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
+      btn.disabled = false;
+      btn.textContent = '🚀 ĐĂNG KÝ THAM GIA';
     });
+
     return false;
   }
 
-  // Khoá toàn bộ form khi hết hạn + hiện thông báo
   function lockRegistration(){
     var grid = document.getElementById('cd-grid');
     if (grid) grid.innerHTML = '<div class="cd-expired">⛔ ĐÃ HẾT HẠN ĐĂNG KÝ</div>';
+
     var label = document.querySelector('.cd-label');
     if (label) label.innerHTML = 'Cổng đăng ký đã đóng lúc <b>12:00, 15/06/2026</b>';
+
     var form = document.getElementById('regForm');
     var fc = document.querySelector('.formcard');
+
     if (fc && !document.getElementById('lockMsg')){
       var lock = document.createElement('div');
       lock.id = 'lockMsg';
@@ -483,6 +510,7 @@
       lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 15/06/2026. Cảm ơn bạn đã quan tâm!';
       fc.insertBefore(lock, fc.children[2] || null);
     }
+
     if (form){
       form.querySelectorAll('input, select, textarea, button').forEach(function(el){ el.disabled = true; });
       form.style.opacity = '.5';
@@ -490,19 +518,24 @@
     }
   }
 
-  // ===== Đếm ngược hạn đăng ký =====
   (function(){
     var deadline = new Date('2026-06-15T12:00:00+07:00').getTime();
     var pad = function(n){ return (n<10?'0':'')+n; };
+
     function tick(){
       var diff = deadline - Date.now();
-      if (diff <= 0){ lockRegistration(); return; }
+      if (diff <= 0){
+        lockRegistration();
+        return;
+      }
+
       document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
       document.getElementById('cd-h').textContent = pad(Math.floor(diff%86400000/3600000));
       document.getElementById('cd-m').textContent = pad(Math.floor(diff%3600000/60000));
       document.getElementById('cd-s').textContent = pad(Math.floor(diff%60000/1000));
       setTimeout(tick, 1000);
     }
+
     tick();
   })();
 </script>
