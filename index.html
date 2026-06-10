@@ -73,6 +73,7 @@
   .cd-box span{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1}
   .cd-box small{display:block;margin-top:6px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
   .cd-expired{color:var(--accent);font-weight:800;font-size:18px;padding:6px 0}
+  .countdown.closed{background:rgba(255,90,31,.08);border-color:var(--accent)}
   @media(max-width:620px){.cd-box{min-width:62px}.cd-box span{font-size:26px}}
 
 
@@ -113,6 +114,7 @@
   .cd-box span{display:block;font-size:32px;font-weight:800;color:#fff;line-height:1}
   .cd-box small{display:block;margin-top:6px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
   .cd-expired{color:var(--accent);font-weight:800;font-size:18px;padding:6px 0}
+  .countdown.closed{background:rgba(255,90,31,.08);border-color:var(--accent)}
   @media(max-width:620px){.cd-box{min-width:62px}.cd-box span{font-size:26px}}
 
   /* FORM */
@@ -232,19 +234,8 @@
   </div>
 
   <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
-  <div class="countdown" id="countdown">
-    <div class="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, 15/06/2026</b></div>
-    <div class="cd-grid" id="cd-grid">
-      <div class="cd-box"><span id="cd-d">00</span><small>Ngày</small></div>
-      <div class="cd-box"><span id="cd-h">00</span><small>Giờ</small></div>
-      <div class="cd-box"><span id="cd-m">00</span><small>Phút</small></div>
-      <div class="cd-box"><span id="cd-s">00</span><small>Giây</small></div>
-    </div>
-  </div>
-
-  <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
-  <div class="countdown" id="countdown">
-    <div class="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, 15/06/2026</b></div>
+  <div class="countdown" id="countdown-card" data-deadline="2026-06-15T12:00:00+07:00">
+    <div class="cd-label" id="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, 15/06/2026</b></div>
     <div class="cd-grid" id="cd-grid">
       <div class="cd-box"><span id="cd-d">00</span><small>Ngày</small></div>
       <div class="cd-box"><span id="cd-h">00</span><small>Giờ</small></div>
@@ -479,7 +470,7 @@
       document.getElementById('branch-doi').classList.remove('active');
       msg.style.display = 'block';
       msg.style.color = '#34d399';
-      msg.innerHTML = '✅ <b>Đã ghi nhận đăng ký!</b> Trong vòng 48 giờ, BTC sẽ gửi email xác nhận cùng hướng dẫn cho hành trình tiếp theo. Nhớ kiểm tra cả hộp thư rác nhé!';
+      msg.innerHTML = '🔥 <b>Đăng ký giữ chỗ thành công!</b><br><br>Cảm ơn bạn đã sẵn sàng chia sẻ câu chuyện AI của mình. BTC đã ghi nhận thông tin đăng ký và sẽ tiếp tục cập nhật các mốc quan trọng của AI Showcase 2026 trong thời gian tới.';
       msg.scrollIntoView({behavior:'smooth',block:'center'});
     }).catch(function(){
       msg.style.display = 'block';
@@ -494,11 +485,13 @@
   }
 
   function lockRegistration(){
+    var card = document.getElementById('countdown-card');
     var grid = document.getElementById('cd-grid');
-    if (grid) grid.innerHTML = '<div class="cd-expired">⛔ ĐÃ HẾT HẠN ĐĂNG KÝ</div>';
+    var label = document.getElementById('cd-label');
 
-    var label = document.querySelector('.cd-label');
-    if (label) label.innerHTML = 'Cổng đăng ký đã đóng lúc <b>12:00, 15/06/2026</b>';
+    if (label) label.innerHTML = '⛔ Cổng đăng ký đã đóng lúc <b>12:00, 15/06/2026</b>';
+    if (grid) grid.innerHTML = '<div class="cd-expired">Form đăng ký đã đóng. Cảm ơn bạn đã quan tâm!</div>';
+    if (card) card.classList.add('closed');
 
     var form = document.getElementById('regForm');
     var fc = document.querySelector('.formcard');
@@ -506,9 +499,9 @@
     if (fc && !document.getElementById('lockMsg')){
       var lock = document.createElement('div');
       lock.id = 'lockMsg';
-      lock.style.cssText = 'background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 4px';
+      lock.style.cssText = 'background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 18px';
       lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 15/06/2026. Cảm ơn bạn đã quan tâm!';
-      fc.insertBefore(lock, fc.children[2] || null);
+      fc.insertBefore(lock, form || null);
     }
 
     if (form){
@@ -519,21 +512,36 @@
   }
 
   (function(){
-    var deadline = new Date('2026-06-15T12:00:00+07:00').getTime();
-    var pad = function(n){ return (n<10?'0':'')+n; };
+    var card = document.getElementById('countdown-card');
+    if (!card) return;
+
+    var deadlineText = card.getAttribute('data-deadline') || '2026-06-15T12:00:00+07:00';
+    var deadline = new Date(deadlineText).getTime();
+    var pad = function(n){ return String(n).padStart(2, '0'); };
+
+    function setText(id, value){
+      var el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
 
     function tick(){
       var diff = deadline - Date.now();
+
       if (diff <= 0){
+        setText('cd-d', '00');
+        setText('cd-h', '00');
+        setText('cd-m', '00');
+        setText('cd-s', '00');
         lockRegistration();
         return;
       }
 
-      document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
-      document.getElementById('cd-h').textContent = pad(Math.floor(diff%86400000/3600000));
-      document.getElementById('cd-m').textContent = pad(Math.floor(diff%3600000/60000));
-      document.getElementById('cd-s').textContent = pad(Math.floor(diff%60000/1000));
-      setTimeout(tick, 1000);
+      setText('cd-d', pad(Math.floor(diff / 86400000)));
+      setText('cd-h', pad(Math.floor((diff % 86400000) / 3600000)));
+      setText('cd-m', pad(Math.floor((diff % 3600000) / 60000)));
+      setText('cd-s', pad(Math.floor((diff % 60000) / 1000)));
+
+      window.setTimeout(tick, 1000);
     }
 
     tick();
