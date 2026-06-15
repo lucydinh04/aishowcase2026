@@ -184,8 +184,8 @@
     <div class="section-title">Tinh thần cốt lõi</div>
     <p class="lead">Đây là một <b>SHOWCASE</b> — <span class="muted">không phải Vibe Coding, không phải Hackathon.</span> Đây là sân khấu để tôn vinh những giải pháp AI <b>đã thật sự sống trong công việc</b>: giải quyết bài toán vận hành hằng ngày, có <b>người thật dùng</b> và tạo ra <b>kết quả thật</b>. Chúng ta không tìm ý tưởng ấn tượng nhất — chúng ta tìm <b>tác động thật nhất</b>.</p>
     <div class="rules">
-      <div class="rule"><div class="k"><span>✅</span>AI đã đi vào thực chiến</div><div class="muted">Giải pháp của bạn không dừng ở slide hay bản demo — nó đã được đưa vào sử dụng thật và đồng hành cùng công việc tối thiểu 2 tuần. Đủ thời gian để chứng minh AI thật sự tạo ra giá trị, chứ không chỉ là một thử nghiệm thoáng qua.</div></div>
-      <div class="rule"><div class="k"><span>✅</span>Có người thật đang hưởng lợi mỗi ngày</div><div class="muted">Đồng nghiệp, phòng ban khác hoặc khách hàng đang trực tiếp dùng giải pháp — AI của bạn đang phục vụ con người thật trong nhịp công việc thật, không chạy trong phòng thí nghiệm.</div></div>
+      <div class="rule"><div class="k"><span>✅</span>AI đã đi vào thực chiến</div><div class="muted">Giải pháp của bạn không dừng ở slide hay bản demo — nó đã thật sự được dùng trong công việc và đang tạo ra giá trị. Không quan trọng đã chạy bao lâu, quan trọng là nó <b>giải một bài toán thật</b>.</div></div>
+      <div class="rule"><div class="k"><span>✅</span>Đang được sử dụng thực tế</div><div class="muted">Đồng nghiệp, phòng ban khác hoặc khách hàng đang trực tiếp dùng giải pháp của bạn trong công việc hằng ngày — không chỉ là bản chạy thử nội bộ.</div></div>
       <div class="rule"><div class="k"><span>✅</span>Giá trị kể được bằng con số</div><div class="muted">Tác động được chứng minh bằng dữ liệu Before – After: thời gian tiết kiệm, lỗi giảm, chi phí tối ưu hay hiệu suất tăng. Con số chính là tiếng nói thuyết phục nhất cho câu chuyện AI của bạn.</div></div>
     </div>
 
@@ -226,7 +226,7 @@
 
     <div class="section-title">Đăng ký ngay</div>
     <div class="steps">
-      <div class="step"><div class="num">1</div><div><b>Đăng ký giữ chỗ trước 18:00, Thứ Tư 17/06/2026.</b> Giúp BTC chuẩn bị mentor, nguồn lực hỗ trợ và các hoạt động đồng hành phù hợp với số lượng đội tham gia.</div></div>
+      <div class="step"><div class="num">1</div><div><b>Đăng ký giữ chỗ trước 12:00, thứ Sáu 19/06/2026.</b> Giúp BTC chuẩn bị mentor, nguồn lực hỗ trợ và các hoạt động đồng hành phù hợp với số lượng đội tham gia.</div></div>
       <div class="step"><div class="num">2</div><div><b>AI SHOWCASE: 30/06/2026.</b> Đây là thời điểm những AI Workflow xuất sắc nhất được trình diễn trước toàn công ty và Ban Giám Khảo.</div></div>
     </div>
 
@@ -234,8 +234,8 @@
   </div>
 
   <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
-  <div class="countdown" id="countdown-card" data-deadline="2026-06-17T18:00:00+07:00">
-    <div class="cd-label" id="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>18:00, Thứ Tư 17/06/2026</b></div>
+  <div class="countdown" id="countdown-card" data-deadline="2026-06-19T12:00:00+07:00">
+    <div class="cd-label" id="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, thứ Sáu 19/06/2026</b></div>
     <div class="cd-grid" id="cd-grid">
       <div class="cd-box"><span id="cd-d">00</span><small>Ngày</small></div>
       <div class="cd-box"><span id="cd-h">00</span><small>Giờ</small></div>
@@ -489,7 +489,7 @@
     var grid = document.getElementById('cd-grid');
     var label = document.getElementById('cd-label');
 
-    if (label) label.innerHTML = '⛔ Cổng đăng ký đã đóng lúc <b>18:00, 17/06/2026</b>';
+    if (label) label.innerHTML = '⛔ Cổng đăng ký đã đóng lúc <b>12:00, 19/06/2026</b>';
     if (grid) grid.innerHTML = '<div class="cd-expired">Form đăng ký đã đóng. Cảm ơn bạn đã quan tâm!</div>';
     if (card) card.classList.add('closed');
 
@@ -500,7 +500,7 @@
       var lock = document.createElement('div');
       lock.id = 'lockMsg';
       lock.style.cssText = 'background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 18px';
-      lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 18:00, 17/06/2026. Cảm ơn bạn đã quan tâm!';
+      lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 19/06/2026. Cảm ơn bạn đã quan tâm!';
       fc.insertBefore(lock, form || null);
     }
 
@@ -515,7 +515,7 @@
     var card = document.getElementById('countdown-card');
     if (!card) return;
 
-    var deadlineText = card.getAttribute('data-deadline') || '2026-06-15T12:00:00+07:00';
+    var deadlineText = card.getAttribute('data-deadline') || '2026-06-19T12:00:00+07:00';
     var deadline = new Date(deadlineText).getTime();
     var pad = function(n){ return String(n).padStart(2, '0'); };
 
