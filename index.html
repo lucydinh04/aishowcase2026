@@ -226,7 +226,7 @@
 
     <div class="section-title">Đăng ký ngay</div>
     <div class="steps">
-      <div class="step"><div class="num">1</div><div><b>Đăng ký giữ chỗ trước 12:00, thứ Sáu 19/06/2026.</b> Giúp BTC chuẩn bị mentor, nguồn lực hỗ trợ và các hoạt động đồng hành phù hợp với số lượng đội tham gia.</div></div>
+      <div class="step"><div class="num">1</div><div><b>Đăng ký giữ chỗ trước 12:00, thứ Hai 22/06/2026</b> <span style="color:var(--accent2);font-weight:700">(đợt đăng ký bổ sung cuối cùng).</span> Giúp BTC chuẩn bị mentor, nguồn lực hỗ trợ và các hoạt động đồng hành phù hợp với số lượng đội tham gia.</div></div>
       <div class="step"><div class="num">2</div><div><b>AI SHOWCASE: 30/06/2026.</b> Đây là thời điểm những AI Workflow xuất sắc nhất được trình diễn trước toàn công ty và Ban Giám Khảo.</div></div>
     </div>
 
@@ -234,8 +234,8 @@
   </div>
 
   <!-- ===================== ĐẾM NGƯỢC HẠN ĐĂNG KÝ ===================== -->
-  <div class="countdown" id="countdown-card" data-deadline="2026-06-19T12:00:00+07:00">
-    <div class="cd-label" id="cd-label">⏰ Hạn đăng ký còn lại — đóng form lúc <b>12:00, thứ Sáu 19/06/2026</b></div>
+  <div class="countdown" id="countdown-card" data-deadline="2026-06-22T12:00:00+07:00">
+    <div class="cd-label" id="cd-label">🔥 ĐỢT ĐĂNG KÝ BỔ SUNG CUỐI CÙNG — đóng form lúc <b>12:00, thứ Hai 22/06/2026</b></div>
     <div class="cd-grid" id="cd-grid">
       <div class="cd-box"><span id="cd-d">00</span><small>Ngày</small></div>
       <div class="cd-box"><span id="cd-h">00</span><small>Giờ</small></div>
@@ -491,7 +491,7 @@
     var grid = document.getElementById('cd-grid');
     var label = document.getElementById('cd-label');
 
-    if (label) label.innerHTML = '⛔ Cổng đăng ký đã đóng lúc <b>12:00, 19/06/2026</b>';
+    if (label) label.innerHTML = '⛔ Cổng đăng ký đã đóng lúc <b>12:00, 22/06/2026</b>';
     if (grid) grid.innerHTML = '<div class="cd-expired">Form đăng ký đã đóng. Cảm ơn bạn đã quan tâm!</div>';
     if (card) card.classList.add('closed');
 
@@ -502,7 +502,7 @@
       var lock = document.createElement('div');
       lock.id = 'lockMsg';
       lock.style.cssText = 'background:rgba(255,90,31,.12);border:1px solid var(--accent);border-radius:12px;padding:16px;color:#ffd2bf;text-align:center;font-weight:700;margin:14px 0 18px';
-      lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 19/06/2026. Cảm ơn bạn đã quan tâm!';
+      lock.innerHTML = '🔒 Form đăng ký đã đóng — hạn chót 12:00, 22/06/2026. Cảm ơn bạn đã quan tâm!';
       fc.insertBefore(lock, form || null);
     }
 
@@ -517,7 +517,7 @@
     var card = document.getElementById('countdown-card');
     if (!card) return;
 
-    var deadlineText = card.getAttribute('data-deadline') || '2026-06-19T12:00:00+07:00';
+    var deadlineText = card.getAttribute('data-deadline') || '2026-06-22T12:00:00+07:00';
     var deadline = new Date(deadlineText).getTime();
     var pad = function(n){ return String(n).padStart(2, '0'); };
 
